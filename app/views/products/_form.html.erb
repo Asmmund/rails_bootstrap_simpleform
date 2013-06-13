@@ -1,8 +1,12 @@
 <%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
+  <%= f.input :for_sale %>
   <%= f.input :price %>
   <%= f.input :created_at %>
   <%= f.association :category %>
+  <%= link_to 'Create New Shop', new_shop_path %>
+
+  <%= f.association :shops, as: :check_boxes,label_method: :name  %>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

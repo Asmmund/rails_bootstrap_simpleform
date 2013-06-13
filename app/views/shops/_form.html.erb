@@ -1,0 +1,12 @@
+<%= simple_form_for @shop, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= link_to 'Create New Product', new_product_path %>
+
+  <%= f.association :products, as: :check_boxes, label_method: :name %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                shops_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -8,6 +8,16 @@
   <dd><%= @product.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
   <dd><%= @product.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:for_sale) %>:</strong></dt>
+  <dd><%= @product.for_sale == true ? 'Available' : 'Restricted' %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+  <dd><%= @product.category.nil? ? ' - ' : @product.category.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shop_product) %>:</strong></dt>
+  <% @product.shops.each  do |shop| %>
+    <dd>
+      <%= link_to shop.name, shop_path(shop) %>
+    </dd>
+    <% end %>
 </dl>
 
 <div class="form-actions">
