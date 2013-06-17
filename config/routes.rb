@@ -1,8 +1,12 @@
 Store::Application.routes.draw do
-  resources :shops
+  resources :shops do
+    resources :products
+  end
+  resources :products do
+    resources :shops
+  end
 
 
-  resources :products
 
   root :to => 'products#index'
   # The priority is based upon order of creation:
